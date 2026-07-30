@@ -19,6 +19,10 @@ class FormulaSafetyTests(unittest.TestCase):
         with self.assertRaises(FormulaError):
             evaluate_formula("forward_return", self.panel, self.contract)
 
+    def test_unsorted_panel_is_rejected(self):
+        with self.assertRaises(FormulaError):
+            evaluate_formula("rank(amount)", self.panel.sample(frac=1, random_state=1), self.contract)
+
     def test_demo_candidate_is_not_promoted(self):
         result = evaluate_candidate(
             "rank(delta(amount, 3)) - rank(mean(returns, 5))",

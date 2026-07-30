@@ -32,6 +32,15 @@ class FormulaSafetyTests(unittest.TestCase):
         )
         self.assertFalse(result["promoted"])
 
+    def test_costs_reduce_reported_net_return(self):
+        result = evaluate_candidate(
+            "rank(delta(amount, 3))",
+            self.panel,
+            split_date="2024-03-15",
+            gate=PromotionGate(transaction_cost_bps=30),
+        )
+        self.assertLessEqual(result["oos_net_return"], result["oos_gross_return"])
+
 
 if __name__ == "__main__":
     unittest.main()

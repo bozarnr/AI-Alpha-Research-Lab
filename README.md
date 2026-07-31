@@ -32,7 +32,7 @@ python -m unittest discover -s tests -v
 
 ## Evidence boundary
 
-The first public record is intentionally conservative. An AutoAlpha-style study ran through the search and validation pipeline, but the frozen protocol produced zero final candidates. See [`evidence/validation-summary.md`](evidence/validation-summary.md), [`reports/rejection-gallery.md`](reports/rejection-gallery.md), and [`research_state.json`](research_state.json).
+The first public record is intentionally conservative. An AutoAlpha-style study ran through the search and validation pipeline, but the frozen protocol produced zero final candidates. See [`evidence/validation-summary.md`](evidence/validation-summary.md), [`reports/rejection-gallery.md`](reports/rejection-gallery.md), and [`research_state.json`](research_state.json). The public disclosure boundary is recorded in [`DISCLOSURE.md`](DISCLOSURE.md), with a tiny synthetic candidate-log fixture in `sample_data/`.
 
 ## Layout
 

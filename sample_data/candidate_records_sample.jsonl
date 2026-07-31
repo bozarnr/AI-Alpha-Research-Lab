@@ -1,0 +1,3 @@
+{"formula":"rank(delta(amount, 3))","oos_rank_ic":0.012,"oos_net_return":-0.0011,"turnover":0.71,"promoted":false,"reason":"too_costly"}
+{"formula":"rank(mean(returns, 5))","oos_rank_ic":-0.004,"oos_net_return":-0.0007,"turnover":0.42,"promoted":false,"reason":"low_oos_rank_ic"}
+{"formula":"rank(delta(close, 2)) - rank(mean(returns, 5))","oos_rank_ic":0.018,"oos_net_return":-0.0003,"turnover":0.58,"promoted":false,"reason":"below_gate"}

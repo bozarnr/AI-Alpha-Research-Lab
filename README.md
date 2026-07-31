@@ -4,6 +4,10 @@ A small formula-alpha sandbox with hard rejection rules. The point is not to mak
 
 这个项目放的是公开、可复查的因子研究骨架。样本内结果不算数，合成数据 demo 也不算策略。候选公式只有在时点安全、样本外、换手和成本门槛下还能站住，才允许往下一层走。
 
+## Showcase
+
+- [Rejection Gallery](reports/rejection-gallery.md): leakage, broken time order, cost erosion, turnover overload, and other failure modes the lab blocks.
+
 ## Related repos
 
 - [AI-Alpha-Research-Lab](https://github.com/bozarnr/AI-Alpha-Research-Lab): formula search, evaluation, and rejection gates.

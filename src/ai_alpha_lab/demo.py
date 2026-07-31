@@ -7,6 +7,7 @@ import json
 import numpy as np
 import pandas as pd
 
+from .loop import CandidateRecord, rejection_gallery, summarize_loop
 from .research import PromotionGate, evaluate_candidate
 
 
@@ -34,7 +35,13 @@ def main() -> None:
         # from being presented as an investable discovery.
         gate=PromotionGate(min_oos_rank_ic=0.05, max_turnover=0.60),
     )
-    print(json.dumps(result, indent=2, ensure_ascii=False))
+    record = CandidateRecord.from_result(result)
+    payload = {
+        "candidate": result,
+        "loop_summary": summarize_loop([record]).to_dict(),
+        "rejection_gallery": rejection_gallery([record]),
+    }
+    print(json.dumps(payload, indent=2, ensure_ascii=False))
 
 
 if __name__ == "__main__":

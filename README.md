@@ -7,6 +7,15 @@ time-safe evaluation, out-of-sample checks, and explicit trading frictions.
 中文简介：这是一个可审计的公式因子研究沙盒。它不把漂亮的样本内指标
 当成成果；候选公式必须通过时点安全、样本外、换手与成本门槛，才会被晋级。
 
+## Public Research Stack
+
+This repository is one part of a public AI-quant portfolio:
+
+- [AI Alpha Research Lab](https://github.com/bozarnr/eee): formula-alpha research with strict promotion gates.
+- [Paper Alpha Replications](https://github.com/bozarnr/paper-library): evidence-first paper replication ledger.
+- [Quant Research Toolkit](https://github.com/bozarnr/experiment): reusable time-safe factor diagnostics.
+- [Strategy Game Agents](https://github.com/bozarnr/behavioral-finance-experiment): behavioral experiment tooling plus strategy-agent simulation.
+
 ## What is included
 
 - A small allow-listed expression language (`rank`, `delta`, `mean`, arithmetic).

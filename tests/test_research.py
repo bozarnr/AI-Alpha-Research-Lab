@@ -2,6 +2,7 @@ import unittest
 
 from ai_alpha_lab.demo import synthetic_panel
 from ai_alpha_lab.expressions import FormulaContract, FormulaError, evaluate_formula
+from ai_alpha_lab.loop import CandidateRecord, rejection_gallery, summarize_loop
 from ai_alpha_lab.research import PromotionGate, evaluate_candidate
 
 
@@ -40,6 +41,20 @@ class FormulaSafetyTests(unittest.TestCase):
             gate=PromotionGate(transaction_cost_bps=30),
         )
         self.assertLessEqual(result["oos_net_return"], result["oos_gross_return"])
+
+    def test_rejection_gallery_sorts_best_rejected_candidates_first(self):
+        records = [
+            CandidateRecord("rank(amount)", 0.01, -0.001, 0.7, False, "too costly"),
+            CandidateRecord("rank(close)", 0.03, -0.002, 0.8, False, "too costly"),
+            CandidateRecord("rank(returns)", 0.06, 0.001, 0.4, True, "passed"),
+        ]
+
+        summary = summarize_loop(records)
+        gallery = rejection_gallery(records, limit=1)
+
+        self.assertEqual(summary.promoted_candidates, 1)
+        self.assertEqual(summary.rejection_reasons, {"too costly": 2})
+        self.assertEqual(gallery[0]["formula"], "rank(close)")
 
 
 if __name__ == "__main__":

@@ -13,5 +13,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: python -m pip install -e .
-      - run: python -m unittest discover -s tests -v
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Run unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Run deterministic demo
+        run: python -m ai_alpha_lab.demo
